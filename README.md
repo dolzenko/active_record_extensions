@@ -66,9 +66,10 @@ Collection of minor extensions to ActiveRecord which just makes life easier.
 
 * `to_hash_exposing(*exposed_methods_and_initialize_hashes) `
 
-      Constructs OpenStruct based on the record.
-    Names of methods which will be carried along to resulting OpenStruct can be passed
-    and also initialization hash as for normal OpenStruct constructor.
+      Constructs Hash based on the record.
+    Names of methods which will be carried along to resulting Hash can be passed
+    and also initialization hash will be used as the starting point for
+    resulting Hash.
 
 * `short_inspect`
 

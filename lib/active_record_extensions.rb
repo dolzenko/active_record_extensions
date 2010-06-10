@@ -140,9 +140,10 @@ module ActiveRecordExtensions
       OpenStruct.new(initialize_hash.symbolize_keys)
     end
 
-    # Constructs OpenStruct based on the record.
-    # Names of methods which will be carried along to resulting OpenStruct can be passed
-    # and also initialization hash as for normal OpenStruct constructor.
+    # Constructs Hash based on the record.
+    # Names of methods which will be carried along to resulting Hash can be passed
+    # and also initialization hash will be used as the starting point for
+    # resulting Hash. 
     def to_hash_exposing(*exposed_methods_and_initialize_hashes)
       exposed_attributes = exposed_methods_and_initialize_hashes.select do |arg|
         [ Symbol, String ].include?(arg.class)
@@ -220,6 +221,7 @@ end
 
 ActiveRecord::Base.extend(ActiveRecordExtensions::ClassMethods)
 ActiveRecord::Base.send(:include, ActiveRecordExtensions::InstanceMethods)
+ActiveRecord.const_set(:RecordInvalid, ActiveRecordExtensions::RecordInvalid)
 
 # TODO that's what will_paginate and others do, make sure it couldn't be implemented with +super+ 
 #ActiveRecord::Associations::AssociationCollection.class_eval do
@@ -234,4 +236,3 @@ ActiveRecord::Base.send(:include, ActiveRecordExtensions::InstanceMethods)
 #  alias_method_chain :sum, :enumerable_fallback
 #end
 
-ActiveRecord.const_set(:RecordInvalid, ActiveRecordExtensions::RecordInvalid)

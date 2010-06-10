@@ -1,0 +1,36 @@
+## active\_record\_extensions
+
+Collection of minor extensions to ActiveRecord which just makes life easier.
+
+<%
+require "yard"
+YARD.parse(File.expand_path("../lib/active_record_extensions.rb", __FILE__))
+include YARD::Templates::Helpers::MethodHelper
+include YARD::Templates::Helpers::TextHelper
+%>
+
+### ClassMethods
+
+<% for meth in P("ActiveRecordExtensions::ClassMethods").meths %>
+* `<%= meth.name %><%= format_args(meth) %>`
+
+  <%= indent meth.docstring %>
+<% end %>
+
+### InstanceMethods
+
+<% for meth in P("ActiveRecordExtensions::InstanceMethods").meths %>
+* `<%= meth.name %><%= format_args(meth) %>`
+
+  <%= indent meth.docstring %>
+<% end %>
+
+### ActiveRecordExtensions::RecordInvalid
+
+<%= P("ActiveRecordExtensions::RecordInvalid").docstring %>
+
+
+Hats off to [Loren Segal](http://gnuu.org/) for his awesome
+[YARD](http://yardoc.org/) tool which is used to generate this README file from
+the code directly.
+

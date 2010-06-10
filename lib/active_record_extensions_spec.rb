@@ -4,7 +4,6 @@ require "active_record/validations"
 
 # tested code
 require File.expand_path("../active_record_extensions", __FILE__)
-puts  File.expand_path("../active_record_extensions", __FILE__)
 
 describe ActiveRecordExtensions do
   describe "ClassMethods" do
@@ -85,16 +84,6 @@ describe ActiveRecordExtensions do
 
         model.my_quote_columns("id").should == "`models`.`id`"
       end
-
-#      columns = %w(email url subdomain).map do |name|
-#        ActiveRecord::ConnectionAdapters::Column.new(name, nil)
-#      end
-#      model.stub(:columns).and_return(columns)
-#
-#      connection = stub("connection")
-#      connection.stub
-
-
     end
 
     describe "strictly_belongs_to" do
@@ -166,6 +155,7 @@ describe ActiveRecordExtensions do
       end
     end
   end
+  
   describe "InstanceMethods" do
     describe "smart_clone" do
       it "clones required attributes" do

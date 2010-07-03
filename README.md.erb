@@ -14,7 +14,7 @@ include YARD::Templates::Helpers::TextHelper
 <% for meth in P("ActiveRecordExtensions::ClassMethods").meths %>
 * `<%= meth.name %><%= format_args(meth) %>`
 
-  <%= indent meth.docstring %>
+<%= indent meth.docstring %>
 <% end %>
 
 ### InstanceMethods
@@ -22,7 +22,7 @@ include YARD::Templates::Helpers::TextHelper
 <% for meth in P("ActiveRecordExtensions::InstanceMethods").meths %>
 * `<%= meth.name %><%= format_args(meth) %>`
 
-  <%= indent meth.docstring %>
+<%= indent meth.docstring %>
 <% end %>
 
 ### ActiveRecordExtensions::RecordInvalid
